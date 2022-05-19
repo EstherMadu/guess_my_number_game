@@ -25,19 +25,13 @@ document.querySelector(".check").addEventListener("click", function () {
       highScore = score;
       document.querySelector(".highscore").textContent = highScore;
     }
+  }
 
-    // when player looses
-  } else if (guess < secretNumber) {
+  // when player looses
+  else if (guess !== secretNumber) {
     if (score > 1) {
-      document.querySelector(".message").textContent = "😒Too Low";
-      score--;
-      document.querySelector(".score").textContent = score;
-    } else {
-      document.querySelector(".score").textContent = 0;
-    }
-  } else if (guess > secretNumber) {
-    if (score > 1) {
-      document.querySelector(".message").textContent = "😒Too High";
+      document.querySelector(".message").textContent =
+        guess > secretNumber ? "😒Too High" : "😒Too Low";
       score--;
       document.querySelector(".score").textContent = score;
     } else {
